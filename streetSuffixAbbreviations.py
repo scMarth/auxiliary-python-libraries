@@ -1,3 +1,6 @@
+# A mapping from commonly used street suffixes to their postal service standard abbreviation
+# as taken from: https://pe.usps.com/text/pub28/28apc_002.htm
+
 class streetSuffixAbbreviations():
 
    abrs = {
