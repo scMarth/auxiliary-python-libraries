@@ -1,9 +1,28 @@
 import sys
 
+"""
+
+A class to represent a csv file.
+
+Usage Example:
+
+   import csvFile
+
+   exampleCsvFile = csvFile.csvFile("./example.csv", 50) # csv has 50 columns
+
+When the above class is initialized, it automatically loads the contents of the CSV into a 2D array.
+They are accessible via exampleCsvFile.csvArray[rowNum][columnNum]
+
+A function validateRecords:
+
+   exampleCsvFile.validateRecords()
+
+can be called to validate the records by printing out how many lines were found, and find out if
+every record in the csv has the correct number of columns
+
+"""
+
 class csvFile(object):
-   """
-   A class to represent a csv file
-   """
 
    # private variables
    __buffer = ""

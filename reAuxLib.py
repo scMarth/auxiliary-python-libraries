@@ -31,3 +31,14 @@ def stringContainsExpr(expr, inputStr):
       return True
    return False
 
+# concatenates an array of tokens into a string of the tokens with spaces between them,
+# without adding a space before the first token or adding a space after the last token
+def createStringFromTokens(tokens):
+   outputStr = ""
+
+   for i in range(0, len(tokens)):
+      outputStr += tokens[i]
+      if (i != (len(tokens) - 1)):
+         outputStr += " "
+
+   return outputStr
