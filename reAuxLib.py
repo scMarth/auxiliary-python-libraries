@@ -12,10 +12,13 @@ removeExtraSpaces("   this is some    string   ")
 
 '''
 
+'''
 
-# returns a string that is just 'inputStr' with multi-spaces casted into single
-# spaces, and all whitespace before the first non-whitespace character removed,
-# as well as all whitespace after the last non-whitespace character removed
+returns a string that is just 'inputStr' with multi-spaces casted into single
+spaces, and all whitespace before the first non-whitespace character removed,
+as well as all whitespace after the last non-whitespace character removed
+
+'''
 def removeExtraSpaces(inputStr):
    tokens = inputStr.upper().split()
    returnStr = ""
@@ -25,14 +28,22 @@ def removeExtraSpaces(inputStr):
          returnStr += " "
    return returnStr
 
-# returns true if the street 'street' is contained in the string 'names'
+'''
+
+returns true if the street 'street' is contained in the string 'names'
+
+'''
 def stringContainsExpr(expr, inputStr):
    if re.search(expr, inputStr):
       return True
    return False
 
-# concatenates an array of tokens into a string of the tokens with spaces between them,
-# without adding a space before the first token or adding a space after the last token
+'''
+
+concatenates an array of tokens into a string of the tokens with spaces between them,
+without adding a space before the first token or adding a space after the last token
+
+'''
 def createStringFromTokens(tokens):
    outputStr = ""
 

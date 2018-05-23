@@ -5,9 +5,10 @@
 
 Usage Example:
 
-from streetSuffixAbbreviations import streetSuffixAbbreviations
+from streetSuffixAbbreviations import streetSuffixAbbreviations, castStreetSuffixesToAbrs
 
 '''
+from reAuxLib import removeExtraSpaces, createStringFromTokens
 
 streetSuffixAbbreviations = {
    "ALLEE" : "ALY",
@@ -513,3 +514,35 @@ streetSuffixAbbreviations = {
    "WELLS" : "WLS",
    "WLS" : "WLS"
 }
+
+'''
+
+given a string, return a string with the street suffixes casted to their standard abbreviation
+
+e.g.
+
+   "JOHN STREET" -> "JOHN ST"
+   "JOHN STRT" -> "JOHN ST"
+   "JOHN ST" -> "JOHN ST"
+
+NOTE: Requires:
+
+   from reAuxLib import removeExtraSpaces
+
+   (you must have reAuxLib)
+
+'''
+def castStreetSuffixesToAbrs(inputStr):
+   outputStr = inputStr.upper()
+   outputStr = removeExtraSpaces(outputStr)
+   outputStr = outputStr.split()
+
+   for i in range(0, len(outputStr)):
+      token = outputStr[i]
+
+      if token in streetSuffixAbbreviations:
+         outputStr[i] = streetSuffixAbbreviations[token]
+
+   outputStr = createStringFromTokens(outputStr)
+   outputStr = removeExtraSpaces(outputStr)
+   return outputStr

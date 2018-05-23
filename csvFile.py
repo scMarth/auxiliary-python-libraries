@@ -1,6 +1,6 @@
 import sys
 
-"""
+'''
 
 A class to represent a csv file.
 
@@ -20,7 +20,7 @@ A function validateRecords:
 can be called to validate the records by printing out how many lines were found, and find out if
 every record in the csv has the correct number of columns
 
-"""
+'''
 
 class csvFile(object):
 
