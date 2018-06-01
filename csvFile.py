@@ -1,4 +1,5 @@
 import sys
+import re
 
 '''
 
@@ -132,5 +133,19 @@ class csvFile(object):
          print("All records have the correct number of columns")
       return
 
+   def checkForSpecialCharacters(self):
+      commas = 0
+      newlines = 0
+
+      for i in range(0, len(self.csvArray)):
+         for j in range(0, len(self.csvArray[i])):
+            if re.search(",", self.csvArray[i][j]):
+               commas += 1
+            if re.search("\n", self.csvArray[i][j]):
+               newlines += 1
+
+      print("commas within fields: " + str(commas))
+      print("newlines within fields: " + str(newlines))
+      return
 
 
