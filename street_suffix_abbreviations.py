@@ -5,12 +5,16 @@
 
 Usage Example:
 
-from streetSuffixAbbreviations import streetSuffixAbbreviations, castStreetSuffixesToAbrs
+   from street_suffix_abbreviations import cast_street_suffixes_to_abrs
+
+   print("John Street -> " + cast_street_suffixes_to_abrs("John Street"))
+   print("John Strt -> " + cast_street_suffixes_to_abrs("John Strt"))
+   print("John St -> " + cast_street_suffixes_to_abrs("John St"))   
 
 '''
-from reAuxLib import removeExtraSpaces, createStringFromTokens
+from re_aux_lib import remove_extra_spaces, create_string_from_tokens
 
-streetSuffixAbbreviations = {
+street_suffix_abbreviations = {
    "ALLEE" : "ALY",
    "ALLEY" : "ALY",
    "ALLY" : "ALY",
@@ -517,7 +521,8 @@ streetSuffixAbbreviations = {
 
 '''
 
-given a string, return a string with the street suffixes casted to their standard abbreviation
+Given a string, return a string with the street suffixes casted to their standard abbreviation.
+The result is capitalized.
 
 e.g.
 
@@ -527,22 +532,21 @@ e.g.
 
 NOTE: Requires:
 
-   from reAuxLib import removeExtraSpaces
+   from reAuxLib import remove_extra_spaces
 
    (you must have reAuxLib)
 
 '''
-def castStreetSuffixesToAbrs(inputStr):
-   outputStr = inputStr.upper()
-   outputStr = removeExtraSpaces(outputStr)
-   outputStr = outputStr.split()
+def cast_street_suffixes_to_abrs(input_str):
+   output_str = remove_extra_spaces(input_str,True)
+   output_str = output_str.split()
 
-   for i in range(0, len(outputStr)):
-      token = outputStr[i]
+   for i in range(0, len(output_str)):
+      token = output_str[i]
 
-      if token in streetSuffixAbbreviations:
-         outputStr[i] = streetSuffixAbbreviations[token]
+      if token in street_suffix_abbreviations:
+         output_str[i] = street_suffix_abbreviations[token]
 
-   outputStr = createStringFromTokens(outputStr)
-   outputStr = removeExtraSpaces(outputStr)
-   return outputStr
+   output_str = create_string_from_tokens(output_str," ")
+   output_str = remove_extra_spaces(output_str,True)
+   return output_str
