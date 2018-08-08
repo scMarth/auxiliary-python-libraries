@@ -532,9 +532,9 @@ e.g.
 
 NOTE: Requires:
 
-   from reAuxLib import remove_extra_spaces
+   from re_aux_lib import remove_extra_spaces
 
-   (you must have reAuxLib)
+   (you must have re_aux_lib)
 
 '''
 def cast_street_suffixes_to_abrs(input_str):
