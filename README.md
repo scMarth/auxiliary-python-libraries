@@ -1,2 +1,5 @@
 # auxiliary-python-libraries
-some auxiliary libraries for Python scripts
+
+Some auxiliary libraries for Python scripts. 
+
+Examples in /examples/
