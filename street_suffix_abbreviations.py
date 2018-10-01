@@ -530,6 +530,10 @@ e.g.
    "JOHN STRT" -> "JOHN ST"
    "JOHN ST" -> "JOHN ST"
 
+   Note this may cause inconsistencies like:
+
+   "CIRCLE DRIVE" -> "CIR DR"
+
 NOTE: Requires:
 
    from re_aux_lib import remove_extra_spaces
