@@ -23,16 +23,15 @@ if __name__ == '__main__':
 
     some_list = [1, 2, 3, 4, 1, 2, 3, 4, 3, 2, 1]
 
-<<<<<<< HEAD
-job_args = []
+    job_args = []
 
-for i in some_list:
-    job_args.append([i, some_map])
+    for i in some_list:
+        job_args.append([i, some_map])
 
-print("Starting processes...")
-multiprocessing_results = be_pool.run(job, job_args)
-print("Processes finished...")
-=======
+    print("Starting processes...")
+    multiprocessing_results = be_pool.run(job, job_args)
+    print("Processes finished...")
+
     args = []
 
     for i in some_list:
@@ -41,7 +40,6 @@ print("Processes finished...")
     print("Starting processes...")
     multiprocessing_results = be_pool.run(job, args)
     print("Processes finished...")
->>>>>>> 3aaf3423573b946195bb21b333ccaee52229bbd8
 
     for result in multiprocessing_results:
         print(result)
