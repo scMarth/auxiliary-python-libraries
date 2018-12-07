@@ -32,15 +32,6 @@ if __name__ == '__main__':
     multiprocessing_results = be_pool.run(job, job_args)
     print("Processes finished...")
 
-    args = []
-
-    for i in some_list:
-        args.append([i, some_map])
-
-    print("Starting processes...")
-    multiprocessing_results = be_pool.run(job, args)
-    print("Processes finished...")
-
     for result in multiprocessing_results:
         print(result)
 
