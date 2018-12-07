@@ -21,13 +21,13 @@ be_pool = best_effort_multiprocessing_pool.BestEffortPool(100)
 
 some_list = [1, 2, 3, 4, 1, 2, 3, 4, 3, 2, 1]
 
-args = []
+job_args = []
 
 for i in some_list:
-    args.append([i, some_map])
+    job_args.append([i, some_map])
 
 print("Starting processes...")
-multiprocessing_results = be_pool.run(job, args)
+multiprocessing_results = be_pool.run(job, job_args)
 print("Processes finished...")
 
 for result in multiprocessing_results:
