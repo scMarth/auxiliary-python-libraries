@@ -1,17 +1,33 @@
+# This example demonstrates how to define a job that takes multiple arguments
+
 import sys
 sys.path.insert(0, '../../')
 import best_effort_multiprocessing_pool
 import os, multiprocessing
 
-def job(input_number):
-    if input_number in [3, 5, 16]: # randomly kill some processes
-        os.kill(multiprocessing.current_process().pid, 9)
-    return str(input_number) + " hey"
+some_map = { \
+    1 : 'one', \
+    2 : 'two', \
+    3 : 'three', \
+    4 : 'four' \
+}
+
+def job(arg):
+    input_number = arg[0]
+    translate_table = arg[1]
+    return translate_table[input_number]
 
 be_pool = best_effort_multiprocessing_pool.BestEffortPool(100)
 
+some_list = [1, 2, 3, 4, 1, 2, 3, 4, 3, 2, 1]
+
+args = []
+
+for i in some_list:
+    args.append([i, some_map])
+
 print("Starting processes...")
-multiprocessing_results = be_pool.run(job, range(0,20))
+multiprocessing_results = be_pool.run(job, args)
 print("Processes finished...")
 
 for result in multiprocessing_results:
