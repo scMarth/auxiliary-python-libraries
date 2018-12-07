@@ -8,13 +8,15 @@ def job(input_number):
         os.kill(multiprocessing.current_process().pid, 9)
     return str(input_number) + " hey"
 
-be_pool = best_effort_multiprocessing_pool.BestEffortPool(100)
+if __name__ == '__main__':
 
-print("Starting processes...")
-multiprocessing_results = be_pool.run(job, range(0,20))
-print("Processes finished...")
+    be_pool = best_effort_multiprocessing_pool.BestEffortPool(100)
 
-for result in multiprocessing_results:
-    print(result)
+    print("Starting processes...")
+    multiprocessing_results = be_pool.run(job, range(0,20))
+    print("Processes finished...")
+
+    for result in multiprocessing_results:
+        print(result)
 
 
