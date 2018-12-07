@@ -34,5 +34,3 @@ if __name__ == '__main__':
 
     for result in multiprocessing_results:
         print(result)
-
-
