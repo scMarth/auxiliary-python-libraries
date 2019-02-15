@@ -16,7 +16,14 @@ class BestEffortPool(object):
     def __init__(self, num_processes):
         self.__MAX_GROUP_SIZE = num_processes
 
-    def __job_function(self, target_function, input_index, input_arg, q):
+    '''
+    It seems like this function can't be private for Python 3.6.5 or below
+    (or 2.7.10 or below).. but a private function, i.e. def __job_function
+    will work in 3.7.2 or 2.7.15
+
+    Either that or this is Windows specific...?
+    '''
+    def job_function(self, target_function, input_index, input_arg, q):
         result = target_function(input_arg)
         q.put([input_index, result, multiprocessing.current_process().pid])
 
@@ -39,7 +46,7 @@ class BestEffortPool(object):
                 # start a new process unless the maximum pool size has been reached or if there are no more inputs
                 if len(multiprocessing.active_children()) < self.__MAX_GROUP_SIZE and self.__input_index < len(input_set):
                     curr_input = input_set[self.__input_index]
-                    p = multiprocessing.Process(target=self.__job_function, args=(target_function, self.__input_index, curr_input, self.__q)) # for some reason, __job_function doesn't work in Windows
+                    p = multiprocessing.Process(target=self.job_function, args=(target_function, self.__input_index, curr_input, self.__q)) # see note above job_function
                     self.__input_index += 1
                     self.__processes.append(p)
                     p.start()
