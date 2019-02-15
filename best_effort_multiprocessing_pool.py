@@ -1,3 +1,5 @@
+# doesn't really work because of the need for if __name__ == '__main__':
+
 import multiprocessing
 
 class BestEffortPool(object):
