@@ -1,5 +1,3 @@
-# doesn't really work because of the need for if __name__ == '__main__':
-
 import multiprocessing
 
 class BestEffortPool(object):
@@ -17,11 +15,7 @@ class BestEffortPool(object):
         self.__MAX_GROUP_SIZE = num_processes
 
     '''
-    It seems like this function can't be private for Python 3.6.5 or below
-    (or 2.7.10 or below).. but a private function, i.e. def __job_function
-    will work in 3.7.2 or 2.7.15
-
-    Either that or this is Windows specific...?
+    This works in Fedora using Python 3.7.2, but not in Windows using Python 3.7.2
     '''
     def job_function(self, target_function, input_index, input_arg, q):
         result = target_function(input_arg)
