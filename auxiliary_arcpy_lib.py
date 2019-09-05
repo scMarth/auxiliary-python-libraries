@@ -63,7 +63,7 @@ def create_fc_with_text_attribute_fields(fgdb_path, fc_name, geometry_type, temp
         fgdb_path       : this is the path to the file geodatabase that holds the feature
         fc_name         : this is the name of the feature class
         geometry_type   : this is the type of the geometry e.g. 'POINT' or 'POLYGON'
-        template        :
+        template        : the feature class used as a template to define the attribute schema of this feature class
         has_m           : if no m, use string 'DISABLED'
         has_z           : if no z, use string 'DISABLED'
         spatial_ref     : an arcpy.SpatialReference(factory_code) object
