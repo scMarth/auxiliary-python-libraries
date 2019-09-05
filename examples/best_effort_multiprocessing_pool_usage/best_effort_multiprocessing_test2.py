@@ -1,7 +1,7 @@
 # This example demonstrates how to define a job that takes multiple arguments
 
-import sys
-sys.path.insert(0, '../../')
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__) + '/../../')
 import best_effort_multiprocessing_pool
 import os, multiprocessing
 

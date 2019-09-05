@@ -1,9 +1,9 @@
-import sys
-sys.path.insert(0, '../../')
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__) + '/../../')
 
 import csv_file
 
-example_csv_file = csv_file.CsvFile("./test_csv.csv", 5)
+example_csv_file = csv_file.CsvFile(os.path.dirname(__file__) + "/test_csv.csv", 5)
 
 example_csv_file.validate_records()
 

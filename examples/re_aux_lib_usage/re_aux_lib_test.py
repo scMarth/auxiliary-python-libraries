@@ -1,5 +1,5 @@
-import sys
-sys.path.insert(0, '../../')
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__) + '/../../')
 
 import re_aux_lib
 
