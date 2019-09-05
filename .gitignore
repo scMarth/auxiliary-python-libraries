@@ -1,3 +1,5 @@
 # Compiled Python Files
 
 *.pyc
+
+test.gdb
