@@ -63,11 +63,12 @@ def create_fc_with_text_attribute_fields(fgdb_path, fc_name, geometry_type, temp
         fgdb_path       : this is the path to the file geodatabase that holds the feature
         fc_name         : this is the name of the feature class
         geometry_type   : this is the type of the geometry e.g. 'POINT' or 'POLYGON'
-        template
+        template        :
         has_m           : if no m, use string 'DISABLED'
         has_z           : if no z, use string 'DISABLED'
-        spatial_ref
-        fields
+        spatial_ref     : an arcpy.SpatialReference(factory_code) object
+        fields          : a list of fields. This function will just create text attributes for these fields
+            for the feature class
 
         NOTE: field names should not have spaces, since arcpy automatically replaces them with underscores!
     """
